@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动弹出框组件</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable"> <!--IOS中Safari允许全屏浏览-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style"><!--IOS中Safari顶端状态条样式-->
+	<meta content="telephone=no,email=no" name="format-detection"><!--略将数字变为电话号码-->
+	<link rel="stylesheet" type="text/css" href="css/dialog.css">
+	<style type="text/css">
+	*{margin: 0;padding: 0;}
+	body{font-size: 16px;padding: 20px;}
+	button{display: block;width: 100%;padding: 10px;margin: 20px 0;
+		background-color: #00be3c;color: #fff;opacity: 0.7;border: none;outline: none;font-size: 16px}
+	</style>
+</head>
+<body>
+	
+	<button id="btn9" style="background-color: red;opacity:0.6">延迟关闭加回调</button>
+	<button id="btn10" style="background-color: red;opacity:0.6">遮罩层点击关闭</button>
+	<button id="btn1">没有传递任何参数(需手动关闭)</button>
+	<button id="btn4">弹出一个确认框,点确认不关闭取消关闭</button>
+	<button id="btn5">带动画的对话框</button>
+	<button id="btn6">弹出一个确认和删除的框,点击确认弹出加载框2秒自动关闭,点击删除按钮把上一次框关闭</button>
+
+	<script src="http://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
+	<script src="js/dialog.js"></script>
+	<script type="text/javascript">
+		$('#btn9').tap(function(){
+			$.dialog({
+				width:'auto',
+				type:"warming",
+				message:"延迟关闭加回调",
+				delay:2000,
+				delayCallback:function(){
+					alert(111);
+				},
+				maskOpacity:'rgba(0,0,0,0.6)'
+			})
+		});
+		$('#btn10').tap(function(){
+			$.dialog({
+				// type:"warming",
+				message:"遮罩层点击是否可以关闭",
+				buttons:[
+					{
+						// text:"按钮A",
+						type:"green"
+					},
+					{
+						// text:"按钮B",
+						type:"red",
+						callback:function(){
+							return false; 
+						}
+					}
+				],
+				maskClose:true
+			})
+		});
+		$('#btn1').tap(function(){
+			var d  = $.dialog({
+				type:"waiting"
+			});
+		});
+		
+		
+		$('#btn4').tap(function(){
+			var d  = $.dialog({
+				type:'warming',
+				message:'我是成功框',
+				buttons:[
+					{
+						type:"red",
+						text:"确认",
+						callback:function(){
+							return false;
+						}
+					},
+					{
+						type:"blue",
+						text:"取消"
+					}
+				]
+			});
+		});
+		
+		$('#btn6').tap(function(){
+			var dddddd  = $.dialog({  //dddddd有对象里返回的方法例如close()
+				type:'warming',
+				message:'我是成功框',
+				buttons:[
+					{
+						type:"green",
+						text:"确认",
+						callback:function(){
+							$.dialog({
+								type:"waiting",
+								delay:2000
+							});
+							return false;
+						}
+					},
+					{
+						type:"red",
+						text:"删除",
+						callback:function(){
+							$.dialog({
+								type:"warming",
+								buttons:[
+									{
+										type:"red",
+										text:"删除之前的弹框!",
+										callback:function(){
+											dddddd.close();  //通过调用方法来关闭 关闭的是第一层的弹框
+											return true;
+										}
+									}
+									
+								]
+							});
+							return true;
+						}
+					}
+				]
+			});
+		});
+		$('#btn5').tap(function(){
+			$.dialog({
+				type:'warming',
+				message:'你想干嘛',
+				buttons:[
+					{
+						type:"red",
+						text:"你好？",
+						callback:function(){
+							return false;
+						}
+					},
+					{
+						type:"blue",
+						text:"不好？"
+					}
+				],
+				effect:true
+			});
+		});
+		
+	</script>
+	
+</body>
+</html>
