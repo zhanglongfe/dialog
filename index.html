@@ -24,10 +24,11 @@
 	<button id="btn5">带动画的对话框</button>
 	<button id="btn6">弹出一个确认和删除的框,点击确认弹出加载框2秒自动关闭,点击删除按钮把上一次框关闭</button>
 
-	<script src="http://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
+	  <!-- // <script src="http://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script> -->
+	// <script type="text/javascript" src="js/zepto.js"></script>
 	<script src="js/dialog.js"></script>
 	<script type="text/javascript">
-		$('#btn9').tap(function(){
+		$('#btn9').click(function(){
 			$.dialog({
 				width:'auto',
 				type:"warming",
@@ -39,7 +40,7 @@
 				maskOpacity:'rgba(0,0,0,0.6)'
 			})
 		});
-		$('#btn10').tap(function(){
+		$('#btn10').click(function(){
 			$.dialog({
 				// type:"warming",
 				message:"遮罩层点击是否可以关闭",
@@ -59,14 +60,14 @@
 				maskClose:true
 			})
 		});
-		$('#btn1').tap(function(){
+		$('#btn1').click(function(){
 			var d  = $.dialog({
 				type:"waiting"
 			});
 		});
 		
 		
-		$('#btn4').tap(function(){
+		$('#btn4').click(function(){
 			var d  = $.dialog({
 				type:'warming',
 				message:'我是成功框',
@@ -86,7 +87,7 @@
 			});
 		});
 		
-		$('#btn6').tap(function(){
+		$('#btn6').click(function(){
 			var dddddd  = $.dialog({  //dddddd有对象里返回的方法例如close()
 				type:'warming',
 				message:'我是成功框',
@@ -126,7 +127,7 @@
 				]
 			});
 		});
-		$('#btn5').tap(function(){
+		$('#btn5').click(function(){
 			$.dialog({
 				type:'warming',
 				message:'你想干嘛',

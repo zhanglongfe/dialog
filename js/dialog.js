@@ -124,7 +124,7 @@
 
  				//点击遮罩层是否可关闭
  				if(config.maskClose){
- 					mask.tap(function(){
+ 					mask.click(function(){
  						_this.close();
  					})
  				}
@@ -151,7 +151,7 @@
 				var button = $("<button"+type+">"+btnText+"</button>");
 				//点击button
 				if(callback){
-					button.on('tap',function(e){
+					button.on('click',function(e){
 						e.stopPropagation();
 						//执行callback函数，将返回值保存在变量isclose；
 						var isclose=callback();
@@ -160,7 +160,7 @@
 						}
 					})
 				}else{
-					button.on('tap',function(e){
+					button.on('click',function(e){
 						e.stopPropagation();
 						_this.close();
 					})
