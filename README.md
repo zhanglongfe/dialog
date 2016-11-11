@@ -46,3 +46,7 @@ maskClose:null,
 
  9）effect:null
 //Boolean,是否启用动画
+
+
+
+＃＃＃312345678
