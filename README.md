@@ -1,10 +1,7 @@
-# dialog
-# 组件开发学习 ＃＃＃＃＃
-
-使用zepto编写移动端弹框组件
+## dialog移动弹框组件
 
 描述：
-dialog弹出框使用zepto插件创建，适用于任何触屏版的项目。包括信息框／提示／询问框／loading等，可以通过参数方便的定义样式内容。
+dialog弹出框基于zepto插件编写，适用于任何触屏版的项目。包括信息框／提示／询问框／loading等，可以通过参数方便的定义样式内容。
 使用方法：
 引用dialog.css，dialog.js两个文件，点击调用$.dialog()方法，通过传入｛｝参数配置，比如；
 <link rel="stylesheet" type="text/css" href="css/dialog.css">
