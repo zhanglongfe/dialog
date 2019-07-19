@@ -25,7 +25,7 @@ $('#btn9').tap(function(){
 ```
 	
 **参数说明：**  
-1.``` maskClose:null```  
+1. ``` maskClose:null```  
 Boolean类型，配置点击遮罩层是否可以关闭，默认null不关闭
 
 2. ```maskOpacity: rgba(0,0,0,0.6)```  
@@ -42,10 +42,10 @@ String，对话框的宽高
 6. ```buttons:［］```  
 Array，传三个参数：type表示按钮背景的选择器；btnText表示按钮文字；callback表示点击之后的回调函数；	
 
-7.``` message:null```  
+7. ``` message:null```  
 String,配置文本信息
 
-8.```type:'waiting'```  
+8. ```type:'waiting'```  
 //配置图标类型，引用了图标的class选择器；
 
 9. ```effect:null```  
